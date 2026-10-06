@@ -1,24 +1,18 @@
 # as3-to-ts
 
-> A tool that helps porting as3 codebase to typescript
+> A tool that helps porting AS3 codebases to TypeScript
 
-This fork has major improvements parsing and emitting code. It has also a custom
-node visitor that allows extending the default behaviour.
+This fork has attempted to unify the whole as3-to-ts fork network.
 
-This project is a fork of
+This project is a fork of [as3web/as3-to-ts](https://github.com/as3web/as3-to-ts) which is a fork of
 [simonbuchan/as3-to-typescript](https://github.com/simonbuchan/as3-to-typescript),
 which is a fork of [the original
 as3-to-typescript](https://github.com/fdecampredon/as3-to-typescript)
 implementation.
 
-## Projects ported using `as3-to-ts`
-
-- [RobotlegsJS](https://github.com/GoodgameStudios/RobotlegsJS)
-- [SignalsJS](https://github.com/GoodgameStudios/SignalJS)
-
 ## Installation
 
-**Option 1: via npm:**:
+**Option 1: via npm:(for the as3web implementation)**:
 
 ```
 npm install -g as3-to-ts
@@ -49,8 +43,7 @@ Options:
 - `--interactive`: if you've manually changed a generated `.ts` file, you'll be
   asked if you want to overwrite it or not.
 
-
-## Known issues
+## Known issues (may be fixed due to unification but idk)
 
 - `super` calls on constructor need to be moved as the first call after conversion.
 - having a comment on `extends` statement causes infinite loop parsing the `.as` file.
@@ -62,8 +55,12 @@ Options:
   an issue if transpiled using `--commonjs`)
 - multiple property definitions generate invalid syntax (`public var velocityX:Number, velocityY:Number;`)
 
+## Planned features
+
+I plan to add an API to use the tool soon, but who knows how long that will take :P
+
 ## Note
 
-This tool will not magicly transform your as3 codebase into perfect typescript, the goal is to transform the sources into *syntacticly* correct typescript, and even this goal is not perfectly respected. It also won't try to provide javascript implementation for flash libraries.
+This tool will not magically transform your AS3 codebase into perfect TypeScript, the goal is to transform the sources into *syntactically* correct TypeScript, and even this goal is not perfectly respected. It also won't try to provide Javascript implementation for flash libraries.
 
-However unlike most attempts that I have seen this tool is based on a true actionscript parser, and so should be able to handle most of as3 constructs and greatly ease the pain of porting a large code base written in as3 to typescript.
+However unlike most attempts that I have seen this tool is based on a true ActionScript parser, and so should be able to handle most of AS3 constructs and greatly ease the pain of porting a large code base written in AS3 to TypeScript.
